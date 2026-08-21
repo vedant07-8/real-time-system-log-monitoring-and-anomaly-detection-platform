@@ -56,6 +56,7 @@ class LogEntry(Base):
     timestamp = Column(
         DateTime,
         nullable=False,
+        index=True,
     )
 
     # --------------------------------------------------------
@@ -65,6 +66,7 @@ class LogEntry(Base):
     source = Column(
         String(100),
         nullable=False,
+        index=True,
     )
 
     event_type = Column(
@@ -76,6 +78,7 @@ class LogEntry(Base):
     level = Column(
         String(20),
         nullable=False,
+        index=True,
     )
 
     # --------------------------------------------------------
@@ -282,5 +285,5 @@ def get_db():
 def init_db():
 
     Base.metadata.create_all(
-        bind=engine
+        bind=engine,
     )
