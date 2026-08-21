@@ -15,14 +15,14 @@ class LogEntry(Base):
     __tablename__ = "log_entries"
 
     id = Column(Integer, primary_key=True, index=True)
-    timestamp = Column(DateTime, nullable=False)
-    source = Column(String(100), nullable=False)  # e.g., "sshd", "apache", "kernel", "sudo"
-    level = Column(String(20), nullable=False)  # INFO, WARNING, ERROR, CRITICAL
+    timestamp = Column(DateTime, nullable=False, index=True)
+    source = Column(String(100), nullable=False, index=True)  # e.g., "sshd", "apache", "kernel", "sudo"
+    level = Column(String(20), nullable=False, index=True)  # INFO, WARNING, ERROR, CRITICAL
     message = Column(Text, nullable=False)
     source_ip = Column(String(50), nullable=True)
     user = Column(String(100), nullable=True)
     raw_log = Column(Text, nullable=False)
-    is_anomaly = Column(Boolean, default=False)
+    is_anomaly = Column(Boolean, default=False, index=True)
     anomaly_type = Column(String(100), nullable=True)
     anomaly_score = Column(Float, default=0.0)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -32,13 +32,13 @@ class Alert(Base):
     __tablename__ = "alerts"
 
     id = Column(Integer, primary_key=True, index=True)
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=datetime.utcnow, index=True)
     anomaly_type = Column(String(100), nullable=False)
-    severity = Column(String(20), nullable=False)  # LOW, MEDIUM, HIGH, CRITICAL
+    severity = Column(String(20), nullable=False, index=True)  # LOW, MEDIUM, HIGH, CRITICAL
     description = Column(Text, nullable=False)
     source_ip = Column(String(50), nullable=True)
     user = Column(String(100), nullable=True)
-    resolved = Column(Boolean, default=False)
+    resolved = Column(Boolean, default=False, index=True)
     log_entry_id = Column(Integer, nullable=True)
 
 
