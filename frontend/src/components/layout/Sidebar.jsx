@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldAlert, LayoutDashboard, Terminal, AlertTriangle, Activity, PanelLeft, ShieldCheck, Radio } from 'lucide-react';
+import { LayoutDashboard, Terminal, AlertTriangle, Activity, PanelLeft, ShieldCheck, Radio } from 'lucide-react';
 
 export default function Sidebar({
   activeTab,
@@ -36,13 +36,9 @@ export default function Sidebar({
       <div>
         <div className="h-14 px-3.5 flex items-center justify-between border-b border-[#27272a]">
           <div className="flex items-center gap-2.5 overflow-hidden">
-            <div className="p-1.5 bg-zinc-800/90 border border-zinc-700 rounded-md text-zinc-100 shrink-0">
-              <ShieldAlert className="w-5 h-5" />
-            </div>
             {!collapsed && (
               <div className="truncate">
                 <h1 className="text-xs font-bold text-zinc-100 tracking-tight leading-none">LOG MONITOR</h1>
-                <span className="text-[10px] font-mono text-zinc-500">SIH1408 Console</span>
               </div>
             )}
           </div>

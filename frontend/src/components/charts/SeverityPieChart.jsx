@@ -34,7 +34,9 @@ export default function SeverityPieChart({ data }) {
           ))}
         </Pie>
         <Tooltip
-          contentStyle={{ backgroundColor: '#0D0D0D', border: '1px solid #262626', borderRadius: '8px' }}
+          contentStyle={{ backgroundColor: '#141417', border: '1px solid #27272a', borderRadius: '8px', color: '#ffffff' }}
+          itemStyle={{ color: '#ffffff' }}
+          labelStyle={{ color: '#ffffff' }}
         />
         <Legend
           wrapperStyle={{ fontSize: '12px', color: '#A1A1AA' }}

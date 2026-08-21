@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search, CheckCircle2, AlertOctagon, Bell } from 'lucide-react';
+import { CheckCircle2, AlertOctagon } from 'lucide-react';
 
 const TAB_TITLES = {
   overview: 'Overview',
@@ -24,24 +24,6 @@ export default function TopBar({ activeTab, criticalCount = 0 }) {
 
       {/* Right Action Controls */}
       <div className="flex items-center gap-3">
-        {/* Search / Ctrl+K Input */}
-        <div className="hidden sm:flex items-center gap-2 px-2.5 py-1 bg-[#141417] border border-[#27272a] rounded-md text-xs text-zinc-400 font-mono shadow-sm shadow-black/40">
-          <Search className="w-3.5 h-3.5 text-zinc-500" />
-          <span className="text-[11px]">Type to search...</span>
-          <kbd className="ml-2 bg-zinc-800 px-1.5 py-0.2 text-[10px] rounded text-zinc-400 border border-zinc-700 font-mono">Ctrl+K</kbd>
-        </div>
-
-        {/* Notifications Bell */}
-        <button
-          className="relative p-1.5 bg-[#141417] border border-[#27272a] rounded-md text-zinc-400 hover:text-zinc-200 transition-colors shadow-sm shadow-black/40"
-          title="Notifications"
-        >
-          <Bell className="w-4 h-4" />
-          {criticalCount > 0 && (
-            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-          )}
-        </button>
-
         {/* System Health Badge */}
         <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#141417] border border-[#27272a] rounded-md text-xs shadow-sm shadow-black/40">
           {isHealthy ? (

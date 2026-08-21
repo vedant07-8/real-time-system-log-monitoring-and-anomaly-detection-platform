@@ -18,7 +18,10 @@ export default function SourceBarChart({ data }) {
         <XAxis dataKey="name" stroke="#71717a" fontSize={11} />
         <YAxis stroke="#71717a" fontSize={11} />
         <Tooltip
-          contentStyle={{ backgroundColor: '#0D0D0D', border: '1px solid #262626', borderRadius: '8px' }}
+          contentStyle={{ backgroundColor: '#141417', border: '1px solid #27272a', borderRadius: '8px', color: '#a1a1aa' }}
+          itemStyle={{ color: '#a1a1aa' }}
+          labelStyle={{ color: '#a1a1aa' }}
+          cursor={{ fill: '#27272a', opacity: 0.5 }}
         />
         <Bar dataKey="value" fill="#E4E4E7" radius={[4, 4, 0, 0]} />
       </BarChart>
