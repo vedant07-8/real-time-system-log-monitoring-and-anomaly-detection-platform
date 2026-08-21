@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 
 export default function SourceBarChart({ data }) {
   if (!data || Object.keys(data).length === 0) {
-    return <div className="h-48 flex items-center justify-center text-slate-500">No source data</div>;
+    return <div className="h-48 flex items-center justify-center text-zinc-500 font-mono text-xs">No source data</div>;
   }
 
   const chartData = Object.entries(data)
@@ -14,13 +14,13 @@ export default function SourceBarChart({ data }) {
   return (
     <ResponsiveContainer width="100%" height={200}>
       <BarChart data={chartData}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-        <XAxis dataKey="name" stroke="#64748b" fontSize={11} />
-        <YAxis stroke="#64748b" fontSize={11} />
+        <CartesianGrid strokeDasharray="3 3" stroke="#262626" />
+        <XAxis dataKey="name" stroke="#71717a" fontSize={11} />
+        <YAxis stroke="#71717a" fontSize={11} />
         <Tooltip
-          contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }}
+          contentStyle={{ backgroundColor: '#0D0D0D', border: '1px solid #262626', borderRadius: '8px' }}
         />
-        <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
+        <Bar dataKey="value" fill="#E4E4E7" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
   );

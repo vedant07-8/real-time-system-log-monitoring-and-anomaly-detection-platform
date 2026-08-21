@@ -70,7 +70,6 @@ function App() {
               const newLog = msg.data;
               setLogs(prev => [newLog, ...prev.slice(0, 49)]);
 
-              // Trigger Toast if CRITICAL alert
               if (newLog.alerts && newLog.alerts.length > 0) {
                 const crit = newLog.alerts.find(a => a.severity === 'CRITICAL');
                 if (crit) {
@@ -81,7 +80,6 @@ function App() {
                 }
               }
 
-              // Periodically refresh stats
               if (Math.random() < 0.15) {
                 fetchStats().then(setStats).catch(() => {});
               }
@@ -119,7 +117,7 @@ function App() {
     };
   }, []);
 
-  // Initial data fetch & 10s refresh interval
+  // Initial fetch and polling refresh
   useEffect(() => {
     fetchData();
     const interval = setInterval(fetchData, 10000);
@@ -154,8 +152,8 @@ function App() {
   const criticalCount = stats?.severity_counts?.CRITICAL || 0;
 
   return (
-    <div className="flex h-screen w-screen bg-slate-950 text-slate-100 font-sans antialiased overflow-hidden selection:bg-blue-500/30 selection:text-blue-200">
-      {/* 21st.dev Collapsible Sidebar */}
+    <div className="flex h-screen w-screen bg-[#000000] text-zinc-100 font-sans antialiased overflow-hidden selection:bg-zinc-700/50 selection:text-zinc-100">
+      {/* Shadcn Dashboard-2 Collapsible Sidebar */}
       <Sidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -165,7 +163,7 @@ function App() {
         criticalCount={criticalCount}
       />
 
-      {/* Main Content Workspace */}
+      {/* Main Workspace */}
       <div className="flex-1 flex flex-col min-w-0 h-full overflow-hidden">
         {/* Top Header */}
         <TopBar
@@ -173,8 +171,8 @@ function App() {
           criticalCount={criticalCount}
         />
 
-        {/* View Content Area */}
-        <main className="flex-1 overflow-y-auto p-6">
+        {/* View Routing Area */}
+        <main className="flex-1 overflow-y-auto p-6 bg-[#000000]">
           <div className="max-w-[1600px] mx-auto">
             {activeTab === 'overview' && (
               <DashboardTab
@@ -209,7 +207,7 @@ function App() {
         </main>
       </div>
 
-      {/* Toast Alert Popup */}
+      {/* Real-time Toast Notifications */}
       <ToastContainer
         toast={toast}
         onClose={() => setToast(null)}

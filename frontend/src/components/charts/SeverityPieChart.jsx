@@ -5,14 +5,14 @@ const SEVERITY_COLORS = {
   CRITICAL: '#ef4444',
   HIGH: '#f97316',
   MEDIUM: '#eab308',
-  LOW: '#22c55e',
+  LOW: '#525252',
 };
 
-const PIE_COLORS = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#8b5cf6'];
+const PIE_COLORS = ['#ef4444', '#f97316', '#eab308', '#525252', '#71717a', '#a1a1aa'];
 
 export default function SeverityPieChart({ data }) {
   if (!data || Object.keys(data).length === 0) {
-    return <div className="h-48 flex items-center justify-center text-slate-500">No alert data</div>;
+    return <div className="h-48 flex items-center justify-center text-zinc-500 font-mono text-xs">No alert data</div>;
   }
 
   const chartData = Object.entries(data).map(([name, value]) => ({ name, value }));
@@ -34,10 +34,10 @@ export default function SeverityPieChart({ data }) {
           ))}
         </Pie>
         <Tooltip
-          contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #334155', borderRadius: '8px' }}
+          contentStyle={{ backgroundColor: '#0D0D0D', border: '1px solid #262626', borderRadius: '8px' }}
         />
         <Legend
-          wrapperStyle={{ fontSize: '12px', color: '#94a3b8' }}
+          wrapperStyle={{ fontSize: '12px', color: '#A1A1AA' }}
         />
       </PieChart>
     </ResponsiveContainer>
