@@ -67,4 +67,4 @@ temp/
 
 # Misc
 *.bak
-*.orig
+*.orignode_modules/
