@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ─── Keyframes ───────────────────────────────────────────── */
+
+@keyframes slideIn {
+  from { transform: translateX(20px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-16px); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+@keyframes pulse-ring {
+  0%   { transform: scale(0.95); opacity: 1; }
+  50%  { transform: scale(1);    opacity: 0.8; }
+  100% { transform: scale(0.95); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -1000px 0; }
+  100% { background-position:  1000px 0; }
+}
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: translateY(0);   }
+  40%            { transform: translateY(-8px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Animations ──────────────────────────────────────────── */
+
+.animate-slide-in   { animation: slideIn 0.3s ease forwards; }
+.animate-float      { animation: float 3s ease-in-out infinite; }
+.animate-glow       { animation: glow 2s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 2s ease-in-out infinite; }
+.animate-fade-in    { animation: fadeIn 0.4s ease forwards; }
+
+.typing-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #94A3B8;
+  display: inline-block;
+  animation: bounce-dot 1.4s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* ─── Card System ─────────────────────────────────────────── */
+
+.nexus-card {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nexus-card-hover:hover {
+  transform: translateY(-2px);
+  border-color: #3B82F6;
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
+}
+
+/* KPI radial glow helpers */
+.kpi-glow-primary  { background: radial-gradient(circle at 100% 0%, rgba(59,130,246,0.10) 0%, transparent 60%); }
+.kpi-glow-success  { background: radial-gradient(circle at 100% 0%, rgba(16,185,129,0.10) 0%, transparent 60%); }
+.kpi-glow-warning  { background: radial-gradient(circle at 100% 0%, rgba(245,158,11,0.10) 0%, transparent 60%); }
+.kpi-glow-danger   { background: radial-gradient(circle at 100% 0%, rgba(239,68,68,0.10)  0%, transparent 60%); }
+.kpi-glow-purple   { background: radial-gradient(circle at 100% 0%, rgba(139,92,246,0.10) 0%, transparent 60%); }
+.kpi-glow-cyan     { background: radial-gradient(circle at 100% 0%, rgba(6,182,212,0.10)  0%, transparent 60%); }
+
+/* ─── Badge System ────────────────────────────────────────── */
+
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.badge-primary  { background: rgba(59,130,246,0.15);  border: 1px solid rgba(59,130,246,0.30);  color: #3B82F6; }
+.badge-success  { background: rgba(16,185,129,0.15);  border: 1px solid rgba(16,185,129,0.30);  color: #10B981; }
+.badge-warning  { background: rgba(245,158,11,0.15);  border: 1px solid rgba(245,158,11,0.30);  color: #F59E0B; }
+.badge-danger   { background: rgba(239,68,68,0.15);   border: 1px solid rgba(239,68,68,0.30);   color: #EF4444; }
+.badge-purple   { background: rgba(139,92,246,0.15);  border: 1px solid rgba(139,92,246,0.30);  color: #8B5CF6; }
+.badge-cyan     { background: rgba(6,182,212,0.15);   border: 1px solid rgba(6,182,212,0.30);   color: #06B6D4; }
+.badge-muted    { background: rgba(51,65,85,0.50);    border: 1px solid rgba(51,65,85,0.80);    color: #94A3B8; }
+
+/* ─── Button System ───────────────────────────────────────── */
+
+.btn-primary {
+  background: #3B82F6; color: #fff;
+  padding: 8px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 500;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.btn-primary:hover  { opacity: 0.85; transform: scale(0.98); }
+
+.btn-outline {
+  background: transparent; color: #F1F5F9;
+  border: 1px solid #334155; padding: 8px 16px;
+  border-radius: 10px; font-size: 13px; font-weight: 500;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.btn-outline:hover  { opacity: 0.85; transform: scale(0.98); }
+
+/* ─── Gradient Text ───────────────────────────────────────── */
+
+.gradient-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #06B6D4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glass Utility (kept for backward compat) ────────────── */
+
+.glass-card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid #334155;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+}
+
+.glass-card-hover {
+  transition: all 0.25s ease;
+}
+
+.glass-card-hover:hover {
+  border-color: #3B82F6;
+  box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ─── Neural Grid ─────────────────────────────────────────── */
+
+.bg-neural-grid {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+
+::-webkit-scrollbar         { width: 4px; height: 4px; }
+::-webkit-scrollbar-track   { background: transparent; }
+::-webkit-scrollbar-thumb   { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+body { overflow-x: hidden; }
+
+/* ─── Chart Tooltip ───────────────────────────────────────── */
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: #1E293B !important;
+  border: 1px solid #334155 !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+}
+
+/* ─── Sidebar Width Transition ────────────────────────────── */
+
+.sidebar-open     { width: 240px; }
+.sidebar-collapsed { width: 68px; }
+
+/* ─── Active Dot ──────────────────────────────────────────── */
+.nav-active-dot {
+  width: 4px; height: 4px; border-radius: 50%;
+  background: #3B82F6;
+  margin-left: auto;
+}
+
+/* ─── Neural Glow ─────────────────────────────────────────── */
+
+.neural-glow {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4),
+              0 0 40px rgba(59, 130, 246, 0.2);
+}
+
+/* ─── Progress bar ────────────────────────────────────────── */
+
+.progress-bar {
+  height: 6px; border-radius: 4px; background: #334155; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 4px;
+  transition: width 0.6s ease;
+}
